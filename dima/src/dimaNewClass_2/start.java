@@ -97,6 +97,7 @@ final class form extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e)
             {
+                System.out.println(panel.getName());
                 panel.setVisible(false);
             }
     }
