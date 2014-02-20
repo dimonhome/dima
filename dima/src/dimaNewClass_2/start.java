@@ -54,7 +54,7 @@ final class form extends JFrame{
             add(UpPanel, BorderLayout.NORTH);
             setVisible(true);
             JButton test = new JButton("TEST");
-            test.addActionListener(new CloseStartPanel(DownPanel));
+            test.addActionListener(new ClosePanel(DownPanel));
             UpPanel.add(test);
         }
     
