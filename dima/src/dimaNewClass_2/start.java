@@ -39,7 +39,7 @@ class form extends JFrame{
         JButton startButton = new JButton("Розпочнем");
         JButton exitProgram = new JButton("Закінчити");
         exitProgram.addActionListener(new CloseProgram());
-        startButton.addActionListener(new CloseStartPanel());
+        startButton.addActionListener(new ClosePanel(StartPanel));
         StartPanel.add(startButton);
         StartPanel.add(exitProgram);
     }
@@ -58,17 +58,9 @@ class form extends JFrame{
             add(DownPanel, BorderLayout.SOUTH);
             JButton exitProgram = new JButton("Вийти");
             DownPanel.add(exitProgram);
-            //exitProgram.setSize((DownPanel.getSize().height)-5, (DownPanel.getSize().width)-5);
             exitProgram.addActionListener(new CloseProgram());
             setVisible(true);
         }
-    
-    
-    
-    void ClosePanel(JPanel panel){
-        panel.getName();
-        System.out.println("Панель "+ panel.getName() + ", закрита");
-    }
     class CloseProgram implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e)
@@ -76,14 +68,16 @@ class form extends JFrame{
             System.exit(0);
         }
         }
-    class CloseStartPanel implements ActionListener{
+    class ClosePanel implements ActionListener{
+        JPanel panel;
+        ClosePanel(JPanel panel)
+        {
+            this.panel=panel;
+        }
         @Override
         public void actionPerformed(ActionEvent e)
         {
-            ClosePanel(StartPanel);
-            StartPanel.setVisible(false);
-            CreateUpPanel();
-            CreateDownPanel();
+            panel.setVisible(false);
         }
     }
 }
