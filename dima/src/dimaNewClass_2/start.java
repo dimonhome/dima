@@ -43,6 +43,9 @@ class form extends JFrame{
         StartPanel.add(startButton);
         StartPanel.add(exitProgram);
     }
+    
+    
+    
     void CreateUpPanel()
         {
             UpPanel = new JPanel();
@@ -52,6 +55,11 @@ class form extends JFrame{
             setVisible(true);
             
         }
+    
+    
+    
+    
+    
     void CreateDownPanel()
         {
             DownPanel = new JPanel();
@@ -61,24 +69,36 @@ class form extends JFrame{
             exitProgram.addActionListener(new CloseProgram());
             setVisible(true);
         }
-    class CloseProgram implements ActionListener{
+    
+    
+    
+    
+    
+    class CloseProgram implements ActionListener
+        {
         @Override
         public void actionPerformed(ActionEvent e)
+            {
+                System.exit(0);
+            }
+        }
+    
+    
+    
+    
+    
+    class ClosePanel implements ActionListener
         {
-            System.exit(0);
-        }
-        }
-    class ClosePanel implements ActionListener{
-        JPanel panel;
-        ClosePanel(JPanel panel)
-        {
-            this.panel=panel;
-        }
-        @Override
-        public void actionPerformed(ActionEvent e)
-        {
-            panel.setVisible(false);
-        }
+            JPanel panel;
+            ClosePanel(JPanel panel)
+            {
+               this.panel=panel;
+            }
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                panel.setVisible(false);
+            }
     }
 }
 
