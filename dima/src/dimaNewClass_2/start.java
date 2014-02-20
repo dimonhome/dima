@@ -18,7 +18,7 @@ public class start {
     }
 }
 
-class form extends JFrame{
+final class form extends JFrame{
     private JPanel UpPanel;
     private JPanel DownPanel;
     private JPanel StartPanel;
