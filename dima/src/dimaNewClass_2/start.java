@@ -53,7 +53,9 @@ final class form extends JFrame{
             UpPanel.add(h1);
             add(UpPanel, BorderLayout.NORTH);
             setVisible(true);
-            
+            JButton test = new JButton("TEST");
+            test.addActionListener(new CloseStartPanel(DownPanel));
+            UpPanel.add(test);
         }
     
     
@@ -97,9 +99,18 @@ final class form extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                System.out.println(panel.getName());
                 panel.setVisible(false);
             }
+        }   
+    class CloseStartPanel extends ClosePanel
+    {
+
+        public CloseStartPanel(JPanel panel) {
+            super(panel);
+            CreateUpPanel();
+            CreateDownPanel();
+        }
+        
     }
 }
 
