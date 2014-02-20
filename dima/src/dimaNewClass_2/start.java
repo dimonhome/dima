@@ -107,6 +107,9 @@ final class form extends JFrame{
 
         public CloseStartPanel(JPanel panel) {
             super(panel);
+        }
+        @Override
+        public void actionPerformed(ActionEvent e){
             CreateUpPanel();
             CreateDownPanel();
         }
