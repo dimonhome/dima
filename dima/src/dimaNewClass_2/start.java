@@ -19,9 +19,10 @@ public class start {
 }
 
 final class form extends JFrame{
-    private JPanel UpPanel;
-    private JPanel DownPanel;
-    private JPanel StartPanel;
+    private JPanel UpPanel = new JPanel();
+    private JPanel DownPanel = new JPanel();
+    private JPanel StartPanel = new JPanel();
+    private JPanel TempPanel = new JPanel();
     //--------------------------------------------------------------------------
     JButton startButton = new JButton("Розпочнем");
     JButton exitProgram = new JButton("Закінчити");
@@ -31,7 +32,8 @@ final class form extends JFrame{
     
     private final int W=500,H=250;
     
-    public form(){
+    public form()
+    {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
         setSize(H,W);
@@ -40,7 +42,6 @@ final class form extends JFrame{
     
     void CreateStartPanel()
     {
-        StartPanel = new JPanel();
         System.out.println("Star Panel is started");
         add(StartPanel, BorderLayout.CENTER);
         
@@ -50,12 +51,8 @@ final class form extends JFrame{
         StartPanel.add(startButton);
         StartPanel.add(exitProgram);
     }
-    
-    
-    
     void CreateUpPanel()
     {
-        UpPanel = new JPanel();
         System.out.println("UpPanel is started");
         UpPanel.add(h1);
         add(UpPanel, BorderLayout.NORTH);
@@ -63,25 +60,14 @@ final class form extends JFrame{
         test.addActionListener(new ClosePanel(DownPanel));
         UpPanel.add(test);
     }
-    
-    
-    
-    
-    
     void CreateDownPanel()
     {
-        DownPanel = new JPanel();
         System.out.println("DownPanel is started");
         add(DownPanel, BorderLayout.SOUTH);
         DownPanel.add(exitProgram);
         exitProgram.addActionListener(new CloseProgram()); //<---- Переглянути і убрать
         setVisible(true);
     }
-    
-    
-    
-    
-    
     class CloseProgram implements ActionListener // тут гуд
     {
     @Override
@@ -91,11 +77,6 @@ final class form extends JFrame{
             System.exit(0);
         }
     }
-    
-    
-    
-    
-    
     class ClosePanel implements ActionListener
     {
         JPanel panel;
