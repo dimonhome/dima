@@ -75,7 +75,7 @@ final class form extends JFrame{
         System.out.println("DownPanel is started");
         add(DownPanel, BorderLayout.SOUTH);
         DownPanel.add(exitProgram);
-        //exitProgram.addActionListener(new CloseProgram());  <---- Переглянути і убрать
+        //exitProgram.addActionListener(new CloseProgram()); <---- Переглянути і убрать
         setVisible(true);
     }
     
