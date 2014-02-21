@@ -36,9 +36,8 @@ final class form extends JFrame{
         setVisible(true);
         setSize(H,W);
         CreateStartPanel();
-        
-
     }
+    
     void CreateStartPanel()
     {
         StartPanel = new JPanel();
@@ -57,7 +56,7 @@ final class form extends JFrame{
     void CreateUpPanel()
     {
         UpPanel = new JPanel();
-        System.out.println("UpPAnel is started");
+        System.out.println("UpPanel is started");
         UpPanel.add(h1);
         add(UpPanel, BorderLayout.NORTH);
         setVisible(true);
@@ -83,7 +82,7 @@ final class form extends JFrame{
     
     
     
-    class CloseProgram implements ActionListener
+    class CloseProgram implements ActionListener // тут гуд
     {
     @Override
     public void actionPerformed(ActionEvent e)
@@ -110,20 +109,5 @@ final class form extends JFrame{
             panel.setVisible(false);
         }
     }   
-    
-    class OpenPanel implements ActionListener
-    {
-        JPanel panel;
-        
-        OpenPanel(JPanel panel)
-        {
-            this.panel=panel;
-        }
-        @Override
-        public void actionPerformed(ActionEvent e)
-        {
-            panel.setVisible(true);
-        }
-    }
 }
 
