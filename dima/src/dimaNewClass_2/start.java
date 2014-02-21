@@ -106,7 +106,7 @@ final class form extends JFrame{
         @Override
         public void actionPerformed(ActionEvent e)
         {
-            panel.setVisible(false);
+           panel.setVisible(false);
         }
     }   
 }
