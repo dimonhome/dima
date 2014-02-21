@@ -117,9 +117,8 @@ final class form extends JFrame{
             }
             else{
                 panel.setVisible(true);
-                test.setText("Сховати");    
+                test.setText("<html><body><b>Сховати</b></body></html>");    
             }        
         }
     }
 }
-
