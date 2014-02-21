@@ -26,7 +26,7 @@ final class form extends JFrame{
     JButton startButton = new JButton("Розпочнем");
     JButton exitProgram = new JButton("Закінчити");
     JButton h1 = new JButton("Привіт");
-    JButton test = new JButton("TEST");
+    JButton test = new JButton("Сховати");
     //--------------------------------------------------------------------------
     
     private final int W=500,H=250;
@@ -89,12 +89,11 @@ final class form extends JFrame{
            panel.setVisible(false);
         }
     }
-    class CloseStartPanel implements ActionListener
+    class CloseStartPanel extends ClosePanel implements ActionListener
     {
-        JPanel panel;
         CloseStartPanel(JPanel panel)
         {
-           this.panel=panel;
+           super(panel);
         }
         @Override
         public void actionPerformed(ActionEvent e)
@@ -103,8 +102,7 @@ final class form extends JFrame{
            CreateUpPanel();
            CreateDownPanel();
         }
-    } // розібрати
-    
+    }    
     class ChangeVisible implements ActionListener
     {
         JPanel panel = new JPanel();
