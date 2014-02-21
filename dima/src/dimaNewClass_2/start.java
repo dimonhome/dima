@@ -22,6 +22,7 @@ final class form extends JFrame{
     private JPanel UpPanel = new JPanel();
     private JPanel DownPanel = new JPanel();
     private JPanel StartPanel = new JPanel();
+    private JPanel passPanel = new JPanel();
     //--------------------------------------------------------------------------
     JButton startButton = new JButton("Розпочнем");
     JButton exitProgram = new JButton("Закінчити");
@@ -29,7 +30,7 @@ final class form extends JFrame{
     JButton test = new JButton("Сховати");
     //--------------------------------------------------------------------------
     
-    private final int W=500,H=250;
+    private final int W=500,H=550;
     
     public form()
     {
@@ -64,9 +65,14 @@ final class form extends JFrame{
         System.out.println("DownPanel is started");
         add(DownPanel, BorderLayout.SOUTH);
         DownPanel.add(exitProgram);
-        exitProgram.addActionListener(new CloseProgram()); //<---- Переглянути і убрать
+        exitProgram.addActionListener(new CloseProgram());
         setVisible(true);
     }
+    void CreatePassPanel()
+    {
+       System.out.println("Yes");
+       add(passPanel, BorderLayout.CENTER);
+    }            
     class CloseProgram implements ActionListener // тут гуд
     {
     @Override
@@ -101,6 +107,7 @@ final class form extends JFrame{
            panel.setVisible(false);
            CreateUpPanel();
            CreateDownPanel();
+           CreatePassPanel();
         }
     }    
     class ChangeVisible implements ActionListener
