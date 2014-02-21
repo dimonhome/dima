@@ -56,7 +56,7 @@ final class form extends JFrame{
         UpPanel.add(h1);
         add(UpPanel, BorderLayout.NORTH);
         setVisible(true);
-        test.addActionListener(new TempClass(DownPanel));
+        test.addActionListener(new ChangeVisible(DownPanel));
         UpPanel.add(test);
     }
     void CreateDownPanel()
@@ -105,10 +105,10 @@ final class form extends JFrame{
         }
     } // розібрати
     
-    class TempClass implements ActionListener
+    class ChangeVisible implements ActionListener
     {
         JPanel panel = new JPanel();
-        TempClass(JPanel panel){
+        ChangeVisible(JPanel panel){
             this.panel=panel;
         }
         @Override
@@ -122,8 +122,6 @@ final class form extends JFrame{
                 test.setText("Сховати");    
             }        
         }
-               
-        
     }
 }
 
