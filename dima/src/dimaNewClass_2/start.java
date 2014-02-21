@@ -25,7 +25,10 @@ final class form extends JFrame{
     //--------------------------------------------------------------------------
     JButton startButton = new JButton("Розпочнем");
     JButton exitProgram = new JButton("Закінчити");
+    JButton h1 = new JButton("Привіт");
+    JButton test = new JButton("TEST");
     //--------------------------------------------------------------------------
+    
     private final int W=500,H=250;
     
     public form(){
@@ -40,7 +43,6 @@ final class form extends JFrame{
     {
         StartPanel = new JPanel();
         add(StartPanel, BorderLayout.CENTER);
-
         exitProgram.addActionListener(new CloseProgram());
         startButton.addActionListener(new ClosePanel(StartPanel));
         StartPanel.add(startButton);
@@ -52,11 +54,9 @@ final class form extends JFrame{
     void CreateUpPanel()
         {
             UpPanel = new JPanel();
-            JButton h1 = new JButton("Привіт");
             UpPanel.add(h1);
             add(UpPanel, BorderLayout.NORTH);
             setVisible(true);
-            JButton test = new JButton("TEST");
             test.addActionListener(new ClosePanel(DownPanel));
             UpPanel.add(test);
         }
@@ -69,7 +69,6 @@ final class form extends JFrame{
         {
             DownPanel = new JPanel();
             add(DownPanel, BorderLayout.SOUTH);
-            JButton exitProgram = new JButton("Вийти");
             DownPanel.add(exitProgram);
             exitProgram.addActionListener(new CloseProgram());
             setVisible(true);
@@ -105,9 +104,11 @@ final class form extends JFrame{
                 panel.setVisible(false);
             }
         }   
+    
+    
+    
     class CloseStartPanel extends ClosePanel
     {
-
         public CloseStartPanel(JPanel panel) {
             super(panel);
         }
@@ -116,7 +117,6 @@ final class form extends JFrame{
             CreateUpPanel();
             CreateDownPanel();
         }
-        
     }
 }
 
