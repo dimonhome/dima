@@ -113,8 +113,14 @@ final class form extends JFrame{
         }
         @Override
         public void actionPerformed(ActionEvent e){
-            if(panel.isVisible()) panel.setVisible(false);
-            else panel.setVisible(true);
+            if(panel.isVisible()){
+                panel.setVisible(false);
+                test.setText("Показати");  
+            }
+            else{
+                panel.setVisible(true);
+                test.setText("Сховати");    
+            }        
         }
                
         
