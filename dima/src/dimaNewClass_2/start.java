@@ -22,6 +22,10 @@ final class form extends JFrame{
     private JPanel UpPanel;
     private JPanel DownPanel;
     private JPanel StartPanel;
+    //--------------------------------------------------------------------------
+    JButton startButton = new JButton("Розпочнем");
+    JButton exitProgram = new JButton("Закінчити");
+    //--------------------------------------------------------------------------
     private final int W=500,H=250;
     
     public form(){
@@ -36,8 +40,7 @@ final class form extends JFrame{
     {
         StartPanel = new JPanel();
         add(StartPanel, BorderLayout.CENTER);
-        JButton startButton = new JButton("Розпочнем");
-        JButton exitProgram = new JButton("Закінчити");
+
         exitProgram.addActionListener(new CloseProgram());
         startButton.addActionListener(new ClosePanel(StartPanel));
         StartPanel.add(startButton);
