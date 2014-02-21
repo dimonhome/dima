@@ -42,9 +42,12 @@ final class form extends JFrame{
     void CreateStartPanel()
     {
         StartPanel = new JPanel();
+        System.out.println("Star Panel is started");
         add(StartPanel, BorderLayout.CENTER);
+        
         exitProgram.addActionListener(new CloseProgram());
         startButton.addActionListener(new ClosePanel(StartPanel));
+        
         StartPanel.add(startButton);
         StartPanel.add(exitProgram);
     }
@@ -52,70 +55,74 @@ final class form extends JFrame{
     
     
     void CreateUpPanel()
-        {
-            UpPanel = new JPanel();
-            UpPanel.add(h1);
-            add(UpPanel, BorderLayout.NORTH);
-            setVisible(true);
-            test.addActionListener(new ClosePanel(DownPanel));
-            UpPanel.add(test);
-        }
+    {
+        UpPanel = new JPanel();
+        System.out.println("UpPAnel is started");
+        UpPanel.add(h1);
+        add(UpPanel, BorderLayout.NORTH);
+        setVisible(true);
+        test.addActionListener(new ClosePanel(DownPanel));
+        UpPanel.add(test);
+    }
     
     
     
     
     
     void CreateDownPanel()
-        {
-            DownPanel = new JPanel();
-            add(DownPanel, BorderLayout.SOUTH);
-            DownPanel.add(exitProgram);
-            exitProgram.addActionListener(new CloseProgram());
-            setVisible(true);
-        }
+    {
+        DownPanel = new JPanel();
+        System.out.println("DownPanel is started");
+        add(DownPanel, BorderLayout.SOUTH);
+        DownPanel.add(exitProgram);
+        //exitProgram.addActionListener(new CloseProgram());  <---- Переглянути і убрать
+        setVisible(true);
+    }
     
     
     
     
     
     class CloseProgram implements ActionListener
+    {
+    @Override
+    public void actionPerformed(ActionEvent e)
         {
-        @Override
-        public void actionPerformed(ActionEvent e)
-            {
-                System.exit(0);
-            }
+            System.out.println("Program has Exit");
+            System.exit(0);
         }
+    }
     
     
     
     
     
     class ClosePanel implements ActionListener
-        {
-            JPanel panel;
-            ClosePanel(JPanel panel)
-            {
-               this.panel=panel;
-            }
-            @Override
-            public void actionPerformed(ActionEvent e)
-            {
-                panel.setVisible(false);
-            }
-        }   
-    
-    
-    
-    class CloseStartPanel extends ClosePanel
     {
-        public CloseStartPanel(JPanel panel) {
-            super(panel);
+        JPanel panel;
+        ClosePanel(JPanel panel)
+        {
+           this.panel=panel;
         }
         @Override
-        public void actionPerformed(ActionEvent e){
-            CreateUpPanel();
-            CreateDownPanel();
+        public void actionPerformed(ActionEvent e)
+        {
+            panel.setVisible(false);
+        }
+    }   
+    
+    class OpenPanel implements ActionListener
+    {
+        JPanel panel;
+        
+        OpenPanel(JPanel panel)
+        {
+            this.panel=panel;
+        }
+        @Override
+        public void actionPerformed(ActionEvent e)
+        {
+            panel.setVisible(true);
         }
     }
 }
