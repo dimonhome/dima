@@ -45,7 +45,7 @@ final class form extends JFrame{
         add(StartPanel, BorderLayout.CENTER);
         
         exitProgram.addActionListener(new CloseProgram());
-        startButton.addActionListener(new ClosePanel(StartPanel));
+        startButton.addActionListener(new CloseStartPanel(StartPanel));
         
         StartPanel.add(startButton);
         StartPanel.add(exitProgram);
@@ -108,6 +108,21 @@ final class form extends JFrame{
         {
            panel.setVisible(false);
         }
-    }   
+    }
+    class CloseStartPanel implements ActionListener
+    {
+        JPanel panel;
+        CloseStartPanel(JPanel panel)
+        {
+           this.panel=panel;
+        }
+        @Override
+        public void actionPerformed(ActionEvent e)
+        {
+           panel.setVisible(false);
+           CreateUpPanel();
+           CreateDownPanel();
+        }
+    }
 }
 
