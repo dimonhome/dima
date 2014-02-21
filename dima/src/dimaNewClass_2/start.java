@@ -22,7 +22,6 @@ final class form extends JFrame{
     private JPanel UpPanel = new JPanel();
     private JPanel DownPanel = new JPanel();
     private JPanel StartPanel = new JPanel();
-    private JPanel TempPanel = new JPanel();
     //--------------------------------------------------------------------------
     JButton startButton = new JButton("Розпочнем");
     JButton exitProgram = new JButton("Закінчити");
@@ -57,7 +56,7 @@ final class form extends JFrame{
         UpPanel.add(h1);
         add(UpPanel, BorderLayout.NORTH);
         setVisible(true);
-        test.addActionListener(new ClosePanel(DownPanel));
+        test.addActionListener(new TempClass(DownPanel));
         UpPanel.add(test);
     }
     void CreateDownPanel()
@@ -104,6 +103,21 @@ final class form extends JFrame{
            CreateUpPanel();
            CreateDownPanel();
         }
+    } // розібрати
+    
+    class TempClass implements ActionListener
+    {
+        JPanel panel = new JPanel();
+        TempClass(JPanel panel){
+            this.panel=panel;
+        }
+        @Override
+        public void actionPerformed(ActionEvent e){
+            if(panel.isVisible()) panel.setVisible(false);
+            else panel.setVisible(true);
+        }
+               
+        
     }
 }
 
