@@ -9,5 +9,6 @@ public class Dima {
                 System.out.println("Hello");
                 //NewClass_1 n1 = new NewClass_1();
                 dimaNewClass_2.start n1 = new dimaNewClass_2.start();
+                //sadfsdfsdfasdf
     }
 }
