@@ -1,6 +1,7 @@
 package dimaNewClass_2;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.event.*;
 import javax.swing.*;
@@ -19,15 +20,11 @@ public class start {
 }
 
 final class form extends JFrame{
-    private JPanel UpPanel = new JPanel();
-    private JPanel DownPanel = new JPanel();
-    private JPanel StartPanel = new JPanel();
-    private JPanel passPanel = new JPanel();
+    pane_lStart FirstPanel = new pane_lStart();
+    panel_NorthPanel northPanel;
     //--------------------------------------------------------------------------
-    JButton startButton = new JButton("Розпочнем");
-    JButton exitProgram = new JButton("Закінчити");
-    JButton h1 = new JButton("Привіт");
-    JButton test = new JButton("Сховати");
+    JButton StartButton = new JButton("Розпочнем");
+    JButton ExitButton = new JButton("Вийти");
     //--------------------------------------------------------------------------
     
     private final int W=500,H=550;
@@ -37,98 +34,9 @@ final class form extends JFrame{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
         setSize(H,W);
-        CreateStartPanel();
-    }
-    
-    void CreateStartPanel()
-    {
-        System.out.println("Star Panel is started");
-        add(StartPanel, BorderLayout.CENTER);
-        
-        exitProgram.addActionListener(new CloseProgram());
-        startButton.addActionListener(new CloseStartPanel(StartPanel));
-        
-        StartPanel.add(startButton);
-        StartPanel.add(exitProgram);
-    }
-    void CreateUpPanel()
-    {
-        System.out.println("UpPanel is started");
-        UpPanel.add(h1);
-        add(UpPanel, BorderLayout.NORTH);
-        setVisible(true);
-        test.addActionListener(new ChangeVisible(DownPanel));
-        UpPanel.add(test);
-    }
-    void CreateDownPanel()
-    {
-        System.out.println("DownPanel is started");
-        add(DownPanel, BorderLayout.SOUTH);
-        DownPanel.add(exitProgram);
-        exitProgram.addActionListener(new CloseProgram());
-        setVisible(true);
-    }
-    void CreatePassPanel()
-    {
-       System.out.println("Yes");
-       this.remove(StartPanel);
-       this.revalidate();
-       
-       add(passPanel, BorderLayout.CENTER);
-    }            
-    class CloseProgram implements ActionListener // тут гуд
-    {
-    @Override
-    public void actionPerformed(ActionEvent e)
-        {
-            System.out.println("Program has Exit");
-            System.exit(0);
-        }
-    }
-    class ClosePanel implements ActionListener
-    {
-        JPanel panel;
-        ClosePanel(JPanel panel)
-        {
-           this.panel=panel;
-        }
-        @Override
-        public void actionPerformed(ActionEvent e)
-        {
-           panel.setVisible(false);
-        }
-    }
-    class CloseStartPanel extends ClosePanel implements ActionListener
-    {
-        CloseStartPanel(JPanel panel)
-        {
-           super(panel);
-        }
-        @Override
-        public void actionPerformed(ActionEvent e)
-        {
-           panel.setVisible(false);
-           CreateUpPanel();
-           CreateDownPanel();
-           CreatePassPanel();
-        }
-    }    
-    class ChangeVisible implements ActionListener
-    {
-        JPanel panel = new JPanel();
-        ChangeVisible(JPanel panel){
-            this.panel=panel;
-        }
-        @Override
-        public void actionPerformed(ActionEvent e){
-            if(panel.isVisible()){
-                panel.setVisible(false);
-                test.setText("Показати");  
-            }
-            else{
-                panel.setVisible(true);
-                test.setText("<html><body><b>Сховати</b></body></html>");    
-            }        
-        }
+        add(FirstPanel);
+        FirstPanel.add(new panel_NorthPanel(StartButton,ExitButton), BorderLayout.NORTH);
+        ExitButton.addActionListener(new listener_ExitProgram());
+        StartButton.addActionListener(new listener_StartButton(northPanel));
     }
 }

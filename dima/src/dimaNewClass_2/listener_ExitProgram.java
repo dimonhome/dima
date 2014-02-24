@@ -8,11 +8,10 @@ import java.awt.event.ActionListener;
  *
  * @author Dima
  */
-public class listener_CloseProgram implements ActionListener{
+public class listener_ExitProgram implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
         System.exit(0);
     }
-    
 }
