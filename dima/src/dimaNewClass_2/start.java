@@ -71,6 +71,9 @@ final class form extends JFrame{
     void CreatePassPanel()
     {
        System.out.println("Yes");
+       this.remove(StartPanel);
+       this.revalidate();
+       
        add(passPanel, BorderLayout.CENTER);
     }            
     class CloseProgram implements ActionListener // тут гуд
