@@ -10,4 +10,8 @@ public class pane_lStart extends JPanel{
     pane_lStart(){
         this.setLayout(new BorderLayout());
     }
+    
+    void pushPanel(JPanel panel, BorderLayout bl){
+        
+    }
 }
