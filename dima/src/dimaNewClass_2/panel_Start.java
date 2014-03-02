@@ -7,14 +7,13 @@ import javax.swing.*;
 
 
 public class panel_Start extends JPanel{
+    BorderLayout layout;
     panel_Start(){
         this.setLayout(new BorderLayout());
+        layout = this.layout();
     }
-    
-    void deletePanel(JPanel panel){
-        this.remove(panel);
-    }
-    void putPanel(JPanel panel, BorderLayout bl){
-        this.add(panel, bl);
+    void pushPanel(JPanel panel, BorderLayout bl){
+        
+        this.remove(layout.removeLayoutComponent(bl.));
     }
 }
