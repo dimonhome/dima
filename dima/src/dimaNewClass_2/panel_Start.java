@@ -10,10 +10,10 @@ public class panel_Start extends JPanel{
     BorderLayout layout;
     panel_Start(){
         this.setLayout(new BorderLayout());
-        layout = this.layout();
+      //  layout = this.layout();
     }
     void pushPanel(JPanel panel, BorderLayout bl){
         
-        this.remove(layout.removeLayoutComponent(bl.));
+        //this.remove(layout.removeLayoutComponent(bl.));
     }
 }

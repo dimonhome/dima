@@ -3,6 +3,7 @@
 package dimaNewPackenga_3;
 
 import java.awt.BorderLayout;
+import java.awt.LayoutManager;
 import javax.swing.*;
 
 public class NewClass_3 extends JFrame {
@@ -13,10 +14,13 @@ public class NewClass_3 extends JFrame {
         setVisible(true);
         this.add(StartPanel);
         StartPanel.setLayout(new BorderLayout());
+        JPanel p = new JPanel();
+        StartPanel.add(p,BorderLayout.CENTER);
     }
     
-    void pushPanel(JPanel panel, BorderLayout dr){
-        //BorderLayout br = (BorderLayout) where;
-        this.remove(this.g);
+    //@SuppressWarnings("empty-statement")
+    void pushPanel(JPanel panel, String dr){
+        BorderLayout br = new BorderLayout();
+        JPanel currentCenterPanel = (JPanel) br.getLayoutComponent(dr);
     }
 }
