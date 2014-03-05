@@ -8,7 +8,7 @@ import javax.swing.*;
 
 public class NewClass_3 extends JFrame {
     JPanel StartPanel = new JPanel();
-    NewClass_3(){
+    public NewClass_3(){
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(500,500);
         setVisible(true);
@@ -16,6 +16,8 @@ public class NewClass_3 extends JFrame {
         StartPanel.setLayout(new BorderLayout());
         JPanel p = new JPanel();
         StartPanel.add(p,BorderLayout.CENTER);
+        JButton b= new JButton("ку ку");
+        p.add(b);
     }
     
     //@SuppressWarnings("empty-statement")
